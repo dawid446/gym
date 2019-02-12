@@ -1,38 +1,25 @@
 import React, { Component } from 'react';
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import colors from '../src/Utils/colors'
+import Layout from './layout/Layout';
 
-const GlobalStyle = createGlobalStyle`
-  body{
-    padding: 0;
-    margin: 0;
-    font-family: 'Monsterrat';
-    color: white;
-  }
 
-  *, *::before, *::after{
-    box-sizing:border-box;
-  }
-  `
-const StyledStart = styled.div`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-
-`
 const StyledSquare = styled.div`
   height: 250px;
   width: 250px;
-  background-color: #EF476F;
+  background-color: ${colors.colar};
   border-radius: 20px;
   margin: 10px;
+  transition: 0.3s;
+  :hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale()(1.1);
+    transform: scale(1.1);
+  }
 `
 const StyledSquareAnother = styled(StyledSquare)
 `
-  background-color: pink;
+  background-color: ${colors.primary};
 `
 class App extends Component {
 
@@ -40,11 +27,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <GlobalStyle />
-        <StyledStart>
+        <Layout>
           <StyledSquare></StyledSquare>
           <StyledSquareAnother></StyledSquareAnother>
-        </StyledStart>
+        </Layout>
+
       </>
     );
   }
