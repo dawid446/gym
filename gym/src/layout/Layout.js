@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components'
-import colors from '../Utils/colors'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import theme from '../Utils/theme'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
   `
 const StyledStart = styled.div`
-  background-color: ${colors.dark};
+  background-color: ${({theme})=> theme.colors.dark};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,12 +26,14 @@ const StyledStart = styled.div`
 `
 
 const Layout = ({children}) =>
-(   <>
+( <ThemeProvider theme={theme}>
+   <>
     <GlobalStyle/>
         <StyledStart>
             {children}
         </StyledStart>
     </>
+    </ThemeProvider>
 )
 
 export default Layout
