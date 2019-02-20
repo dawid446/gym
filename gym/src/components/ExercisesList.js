@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List, ListItem, ListItemAvatar, Avatar, ListItemText, ListItemSecondaryAction, IconButton } from '@material-ui/core';
-import AddBox from '@material-ui/icons/AddBox';;
+import AddBox from '@material-ui/icons/AddCircle';;
 
 class Excercises extends Component {
 
@@ -11,7 +11,7 @@ class Excercises extends Component {
         return (
             <List>
                 {this.props.data.map((dates, i) =>
-                    <ListItem key={i}>
+                    <ListItem key={dates.id}>
                         <ListItemAvatar>
                             <Avatar>
                             </Avatar>
